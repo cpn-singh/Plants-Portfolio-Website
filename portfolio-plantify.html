@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PlStoreantify - Plant </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #f5fff6;
+        }
+
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .card {
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .btn-success {
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+       
+        .about-wrapper {
+            background: linear-gradient(135deg, #f0fff3, #ffffff);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-image img {
+            border-radius: 18px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .feature-box {
+            background: #ffffff;
+            padding: 12px 14px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-3px);
+            background: #eaffea;
+        }
+
+        .about-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            background: #28a745;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .about-btn:hover {
+            background: #1f7a33;
+            transform: translateY(-2px);
+        }
+
+        .contact-wrapper {
+            background: linear-gradient(135deg, #e8f5e9, #f9fff9);
+            border-radius: 20px;
+        }
+        .contact-card {
+            background: #0f3d1f;
+            color: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .info-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .form-card h3 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #1b5e20;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.15);
+        }
+
+        .form-card button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 50px;
+            background: #28a745;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .form-card button:hover {
+            background: #1f7a33;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            width: 100%;
+            margin: 0;
+        }
+
+        .section-title {
+            color: #1b5e20;
+            font-weight: 700;
+        }
+
+        .hero-text {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
+        <div class="container-fluid">
+  
+            <a class="navbar-brand fw-bold fs-3" href="#">🌿 Plantify</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#indoor" data-bs-toggle="dropdown">
+                            Indoor Plants
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Snake Plant</a></li>
+                            <li><a class="dropdown-item" href="#">Money Plant</a></li>
+                            <li><a class="dropdown-item" href="#">Peace Lily</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#outdoor" data-bs-toggle="dropdown">
+                            Outdoor Plants
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Rose Plant</a></li>
+                            <li><a class="dropdown-item" href="#">Palm Tree</a></li>
+                            <li><a class="dropdown-item" href="#">Tulsi</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-warning fw-bold" href="#">Offers</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light fw-bold" href="#about">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light fw-bold" href="#contact">Contact Us</a>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search Plants">
+                    <button class="btn btn-light text-success fw-bold">Search</button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    <!--slide_show -->
+    <div id="plantCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500"
+        data-bs-pause="hover">
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#plantCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#plantCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#plantCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#plantCarousel" data-bs-slide-to="3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg" class="d-block w-100"
+                    alt="Plants">
+
+                <div class="carousel-caption">
+                    <div class="hero-text">
+                        <h1>Bring Nature Home</h1>
+                        <p>Fresh indoor plants for your living room.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/4505161/pexels-photo-4505161.jpeg" class="d-block w-100"
+                    alt="Garden">
+
+                <div class="carousel-caption">
+                    <div class="hero-text">
+                        <h1>Green & Beautiful</h1>
+                        <p>Decorate your home with natural beauty.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/6208086/pexels-photo-6208086.jpeg" class="d-block w-100"
+                    alt="Indoor Plants">
+
+                <div class="carousel-caption">
+                    <div class="hero-text">
+                        <h1>Healthy Indoor Plants</h1>
+                        <p>Air purifying plants for healthy living.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/1400375/pexels-photo-1400375.jpeg" class="d-block w-100"
+                    alt="Plant Store">
+
+                <div class="carousel-caption">
+                    <div class="hero-text">
+                        <h1>Fresh Plants Delivered</h1>
+                        <p>Premium quality plants at your doorstep.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--button controls-->
+        <button class="carousel-control-prev" type="button" data-bs-target="#plantCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#plantCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+
+    <!-- best selling product section -->
+    <div class="container my-5">
+
+        <h2 class="text-center section-title mb-5">Best Selling Plants</h2>
+
+        <div class="row g-4">
+
+            <!-- card 1 -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm product-card">
+
+                    <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=500"
+                        class="card-img-top">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title fw-bold">Snake Plant</h5>
+
+                        <p class="text-muted">
+                            Air Purifying Indoor Plant
+                        </p>
+
+                        <h5 class="text-success">₹499</h5>
+
+                        <button class="btn btn-success w-100">
+                            Add To Cart
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- card 2 -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm product-card">
+
+                    <img src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?q=80&w=500"
+                        class="card-img-top">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title fw-bold">Peace Lily</h5>
+
+                        <p class="text-muted">
+                            Elegant Flowering Plant
+                        </p>
+
+                        <h5 class="text-success">₹799</h5>
+
+                        <button class="btn btn-success w-100">
+                            Add To Cart
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- card 3 -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm product-card">
+
+                    <img src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?q=80&w=500"
+                        class="card-img-top">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title fw-bold">Money Plant</h5>
+
+                        <p class="text-muted">
+                            Lucky & Easy To Grow
+                        </p>
+
+                        <h5 class="text-success">₹399</h5>
+
+                        <button class="btn btn-success w-100">
+                            Add To Cart
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- card 4 -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm product-card">
+
+                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=500"
+                        class="card-img-top">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title fw-bold">Aloe Vera</h5>
+
+                        <p class="text-muted">
+                            Medicinal Succulent Plant
+                        </p>
+
+                        <h5 class="text-success">₹299</h5>Cart<ul class="navbar-nav me-auto">
+
+                            <button class="btn btn-success w-100">
+                                Add To Cart
+                            </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- filter section -->
+    <div class="container my-5">
+
+        <div class="row">
+
+            <!-- sidebar -->
+            <div class="col-md-3">
+
+                <div class="card shadow-sm border-0 p-3">
+
+                    <h5 class="fw-bold mb-4">Filters</h5>
+
+                    <label class="fw-semibold">
+                        Max Price:
+                        <span id="priceValue" class="text-success">₹1500</span>
+                    </label>
+
+                    <input type="range" class="form-range" min="200" max="1500" value="1500" step="100" id="priceRange">
+
+                </div>
+
+            </div>
+
+            <!-- products -->
+            <div class="col-md-9">
+
+                <div class="row g-4" id="product-list">
+
+                    <div class="col-md-4 product-item" data-price="499">
+                        <div class="card border-0 shadow-sm h-100">
+
+                            <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=500"
+                                class="card-img-top">
+
+                            <div class="card-body text-center">
+
+                                <h5>Snake Plant</h5>
+
+                                <p class="text-success fw-bold">₹499</p>
+
+                                <button class="btn btn-outline-success w-100">
+                                    Add To Cart
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item" data-price="899">
+                        <div class="card border-0 shadow-sm h-100">
+
+                            <img src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?q=80&w=500"
+                                class="card-img-top">
+
+                            <div class="card-body text-center">
+
+                                <h5>Peace Lily</h5>
+
+                                <p class="text-success fw-bold">₹899</p>
+
+                                <button class="btn btn-outline-success w-100">
+                                    Add To Cart
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item" data-price="1200">
+                        <div class="card border-0 shadow-sm h-100">
+
+                            <img src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?q=80&w=500"
+                                class="card-img-top">
+
+                            <div class="card-body text-center">
+
+                                <h5>Bonsai Plant</h5>
+
+                                <p class="text-success fw-bold">₹1200</p>
+
+                                <button class="btn btn-outline-success w-100">
+                                    Add To Cart
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- about us section -->
+    <div id="about" class="container my-5">
+
+        <h2 class="text-center section-title mb-5">About Plantify</h2>
+
+        <div class="about-wrapper p-4 p-md-5">
+
+            <div class="row align-items-center g-5">
+
+                <!-- image -->
+                <div class="col-md-6">
+                    <div class="about-image">
+                        <img src="https://images.pexels.com/photos/4505161/pexels-photo-4505161.jpeg" alt="Plants"
+                            class="img-fluid">
+                    </div>
+                </div>
+
+                <!-- about us details -->
+                <div class="col-md-6">
+
+                    <h3 class="fw-bold text-success mb-3">
+                        Growing a Greener Tomorrow 🌱
+                    </h3>
+
+                    <p class="text-muted">
+                        Plantify is your trusted plant store delivering fresh, healthy,
+                        and carefully nurtured plants right to your doorstep.
+                        We believe every home deserves a touch of nature.
+                    </p>
+
+                    <!-- about us cards -->
+                    <div class="feature-grid mt-4">
+
+                        <div class="feature-box">
+                            🌿 <span>Premium Quality Plants</span>
+                        </div>
+
+                        <div class="feature-box">
+                            🚚 <span>Fast & Safe Delivery</span>
+                        </div>
+
+                        <div class="feature-box">
+                            🏡 <span>Home Garden Experts</span>
+                        </div>
+
+                        <div class="feature-box">
+                            💚 <span>Eco-Friendly Packaging</span>
+                        </div>
+
+                    </div>
+
+                    <button class="about-btn mt-4">
+                        Explore Collection
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- contact us section -->
+    <div id="contact" class="container my-5">
+
+        <h2 class="text-center section-title mb-5">Contact Us</h2>
+
+        <div class="row g-4">
+
+            <div class="contact-wrapper p-4 p-md-5">
+
+                <div class="row g-4 align-items-stretch">
+
+                    <!-- contact details -->
+                    <div class="col-md-5">
+
+                        <div class="contact-card h-100">
+
+                            <h3>📞 Contact Info</h3>
+
+                            <p>Have questions about plants, delivery, or orders?</p>
+
+                            <div class="info-box">
+                                <p>📧 support@plantify.com</p>
+                                <p>📱 +91 98765 43210</p>
+                                <p>📍 New Delhi, India</p>
+                            </div>
+
+                            <hr>
+
+                            <p class="small-text">
+                                We reply within 24 hours. For urgent issues, call us directly.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- contact us form -->
+                    <div class="col-md-7">
+
+                        <div class="form-card">
+
+                            <h3>✉️ Send Message</h3>
+
+                            <form>
+
+                                <div class="input-group">
+                                    <input type="text" placeholder="Your Name" required>
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="email" placeholder="Your Email" required>
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" placeholder="Subject">
+                                </div>
+
+                                <div class="input-group">
+                                    <textarea rows="5" placeholder="Write your message..."></textarea>
+                                </div>
+
+                                <button type="submit">Send Message 🚀</button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+
+        <div class="container-fluid px-5">
+
+            <div class="row">
+
+                <div class="col-lg-4 mb-4">
+
+                    <h3 class="fw-bold text-success">
+                        🌿 Plantify
+                    </h3>
+
+                    <p class="text-secondary mt-3">
+                        Bringing nature closer to your home with fresh,
+                        healthy and beautiful plants.
+                    </p>
+
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+
+                    <h5 class="fw-bold mb-4">Shop</h5>
+
+                    <ul class="list-unstyled">
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Indoor Plants
+                            </a>
+                        </li>
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Outdoor Plants
+                            </a>
+                        </li>
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Succulents
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+
+                    <h5 class="fw-bold mb-4">Support</h5>
+
+                    <ul class="list-unstyled">
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Track Order
+                            </a>
+                        </li>
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Shipping
+                            </a>
+                        </li>
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <h5 class="fw-bold mb-4">
+                        Subscribe Newsletter
+                    </h5>
+
+                    <div class="input-group">
+
+                        <input type="email" class="form-control" placeholder="Enter your email">
+
+                        <button class="btn btn-success">
+                            Subscribe
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <div class="text-center text-secondary">
+                © 2026 Plantify. All Rights Reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- FILTER JS -->
+    <script>
+
+        const priceRange = document.getElementById('priceRange');
+        const priceValue = document.getElementById('priceValue');
+        const products = document.querySelectorAll('.product-item');
+
+        priceRange.addEventListener('input', function () {
+
+            const currentPrice = parseInt(this.value);
+
+            priceValue.textContent = `₹${currentPrice}`;
+
+            products.forEach(product => {
+
+                const productPrice = parseInt(
+                    product.getAttribute('data-price')
+                );
+
+                if (productPrice <= currentPrice) {
+                    product.style.display = 'block';
+                }
+
+                else {
+                    product.style.display = 'none';
+                }
+
+            });
+
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
